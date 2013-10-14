@@ -17,6 +17,7 @@ endif
 syntax case match
 
 syntax match artemisLineComment "//.*"
+syntax region artemisLineComment start=/\/\*/ end=/\*\//
 syntax match artemisLabel "^\*\S\+"
 
 syntax match artemisCommandLine "^\t*\zs@.*$" contains=artemisCommandTagName,artemisCommandParametersKey,artemisCommandParametersEqual,artemisCommandParametersValue
