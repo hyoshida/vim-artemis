@@ -28,12 +28,38 @@ syntax match artemisCommandParametersEqual "=" contained nextgroup=artemisComman
 " FIXME: won't highlight
 syntax match artemisCommandParametersValue "=\zs\S\+" contained
 
-syntax keyword artemisCommandTagName contained skipwhite nextgroup=artemisCommandParametersKey,artemisCommandParametersEqual,artemisCommandParametersValue animstart animstop autowc backlay bgmopt button call cancelautomode cancelskip cancelvideoevent cancelvideosegloop cclick ch checkbox clearbgmlabel clearbgmstop clearsysvar clearvar clearvideolayer click clickskip close cm commit copybookmark copylay ct ctimeout current cursor cwheel deffont defstyle delay disablestore edit else elsif emb endhact endif endignore endindent endlink endmacro endnowait endscript er erasebookmark erasemacro eval fadebgm fadeinbgm fadeinse fadeoutbgm fadeoutse fadepausebgm fadese font freeimage glyph goback gotostart graph hact hch hidemessage history hr if ignore image indent input iscript jump l laycount layopt link load loadplugin locate locklink locksnapshot macro mapaction mapdisable mapimage mappfont move nextskip nowait openvideo p pausebgm pausevideo pimage playbgm playse playvideo position preparevideo ptext quake r rclick record resetfont resetstyle resetwait resumebgm resumevideo return rewindvideo ruby s save seopt setbgmlabel setbgmstop showhistory startanchor stopbgm stopmove stopquake stopse stoptrans stopvideo store style tempload tempsave timeout title trace trans unlocklink unlocksnapshot video videoevent videolayer videosegloop wa wait waitclick waittrig wb wc wf wheel wl wm wp wq ws wt wv xchgbgm
-
-syntax region artemisString start=/"/ end=/"/
-syntax region artemisString start=/'/ end=/'/
-
-syntax keyword artemisBoolean true false
+" exec
+syntax keyword artemisCommandTagName contained skipwhite nextgroup=artemisCommandParametersKey,artemisCommandParametersEqual,artemisCommandParametersValue
+  \ automode autosave backlog call calllua debug debugprint debugreload delcommandskipin delonautomodein delonautomodeout delonbacklogin delonbacklogout deloncommandskipout deloncontrolskipin deloncontrolskipout delonhidein delonhideout delonpush exec exit hide jump keyconfig load lua macroadd macrodel rclick reset return save setonautomodein setonautomodeout setonbacklogin setonbacklogout setoncommandskipin setoncommandskipout setoncontrolskipin setoncontrolskipout setonhidein setonhideout setonpush skip stop tag wait
+" text
+syntax keyword artemisCommandTagName contained skipwhite nextgroup=artemisCommandParametersKey,artemisCommandParametersEqual,artemisCommandParametersValue
+  \ chgmsg font fontinit glyph indent link linkdisable linkenable print prohibit rp rt ruby scein sceout scetween writebacklog
+  \ fontdefault
+" graphics
+syntax keyword artemisCommandTagName contained skipwhite nextgroup=artemisCommandParametersKey,artemisCommandParametersEqual,artemisCommandParametersValue
+  \ anime delonclick delondrag delondragin delondragout delonrollout delonrollover flip lyc lydel lydrag lyedit lyprop lytween lytweendel savess setonclick setondrag setondragin setondragout setonrollout setonrollover slider takess trans tweenset uidel
+" sound
+syntax keyword artemisCommandTagName contained skipwhite nextgroup=artemisCommandParametersKey,artemisCommandParametersEqual,artemisCommandParametersValue
+  \ delonsoundfinish seplay sestop setonsoundfinish sfade splay sstop sxfade voice
+" video
+syntax keyword artemisCommandTagName contained skipwhite nextgroup=artemisCommandParametersKey,artemisCommandParametersEqual,artemisCommandParametersValue
+  \ video
+" variable
+syntax keyword artemisCommandTagName contained skipwhite nextgroup=artemisCommandParametersKey,artemisCommandParametersEqual,artemisCommandParametersValue
+  \ if loop var
+  \ elseif else
+" file
+syntax keyword artemisCommandTagName contained skipwhite nextgroup=artemisCommandParametersKey,artemisCommandParametersEqual,artemisCommandParametersValue
+  \ file
+" network
+syntax keyword artemisCommandTagName contained skipwhite nextgroup=artemisCommandParametersKey,artemisCommandParametersEqual,artemisCommandParametersValue
+  \ httpget httppost
+" os/hardware
+syntax keyword artemisCommandTagName contained skipwhite nextgroup=artemisCommandParametersKey,artemisCommandParametersEqual,artemisCommandParametersValue
+  \ callnative caption delondirchg dialog direction ime mouse openbrowser purchase setondirchg statusbar vibrate
+" pre-processor
+syntax keyword artemisCommandTagName contained skipwhite nextgroup=artemisCommandParametersKey,artemisCommandParametersEqual,artemisCommandParametersValue
+  \ &autoinsert &linetag &scpsupport
 
 if v:version >= 508 || !exists("did_artemis_syn_inits")
   if v:version < 508
